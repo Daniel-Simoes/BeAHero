@@ -1,12 +1,11 @@
  const express = require('express');
+ const routes = require('./routes');
 
  const app = express();
 
- app.post('/users', (Request, response) => {
-     return response.json({
-         evento: 'Semana Oministack 11',
-         aluno: 'Daniel Simões'
-     });
- });
+ app.use(express.json());
+ app.use(routes);
+
+  
 
  app.listen(3333);
