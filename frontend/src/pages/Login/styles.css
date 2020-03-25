@@ -36,6 +36,10 @@ margin-top: 100px;
     transition: opacity 0.2s;
 }
 
+.login-container section.form form a svg{
+    margin-right: 6px;
+}
+
 .login-container section.form form a:hover{
     opacity: 0.8;
 }
