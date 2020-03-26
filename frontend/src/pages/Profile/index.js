@@ -9,10 +9,10 @@ import Logo from '../../assets/logo.svg';
 import './styles.css';
 
 export default function Profile() {
-    const ongName = localStorage.getItem('ongName');
-    const ongId = localStorage.getItem('ongId');
-
     const[ incidents, setIncidents ] = useState([]);
+
+    const ongId = localStorage.getItem('ongId');
+    const ongName = localStorage.getItem('ongName');
 
     useEffect(() => {
         api.get('profile', {
@@ -23,6 +23,19 @@ export default function Profile() {
             setIncidents(response.data);
         })
     }, [ongId]);
+
+        async function handleDeleteIncident(id) {
+            try {
+                await api.delete(`incidents/${id}`, {
+                headers: {
+                Authorization: ongId,
+            }
+        });
+            }
+            catch (err) {
+                alert('Failed, Try to Delete This Incident Late.')
+            }
+        }
 
   return (
     <div className="profile-container">
@@ -45,7 +58,9 @@ export default function Profile() {
                         <p>{incident.description}</p>
                         <strong>Value:</strong>
                         <p>{Intl.NumberFormat('en-UK', { style: 'currency', currency: 'EUR' }).format(incident.value)}</p>
-                        <button type="button" >
+                        <button 
+                        onClick={() => handleDeleteIncident(incident.id)}
+                        type="button">
                             <FiTrash2 size={20} color="#A8A8B3" />
                         </button>
                     </li>
