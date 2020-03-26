@@ -14,7 +14,7 @@ export default function Register() {
                <img src={Logo} alt="Logo"/>
                <h1>Sign Up</h1>
                <p>Into in Aplication and help people find your Organization's Incidents.</p>
-               <Link className="back-link" to="/Register">
+               <Link className="back-link" to="/">
                    <FiArrowLeft size={16} color="#E02041"/>
                     Sign In 
                 </Link>
