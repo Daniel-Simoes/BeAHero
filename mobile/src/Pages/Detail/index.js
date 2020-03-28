@@ -29,10 +29,6 @@ export default function Detail() {
     Linking.openURL(`whatsapp://send?phone=3530834269272&text=${message}`);
 
   }
-
-
-
-
   return (
     <View style={styles.container}>
       <View style={styles.header}>
