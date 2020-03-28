@@ -15,8 +15,8 @@ export default function Incidents() {
 
     const navigation = useNavigation();
 
-    function navigateToDetail() {
-        navigation.navigate('Detail');
+    function navigateToDetail(incident) {
+        navigation.navigate('Detail',{ incident });
     }
 
     async function loadIncidents() {
@@ -55,12 +55,12 @@ export default function Incidents() {
                         <Text style={styles.incidentProperty}>Incident</Text>
                         <Text style={styles.incidentValue}>{incident.title}</Text>
 
-                        <Text style={styles.incidentProperty}>Valor</Text>
+                        <Text style={styles.incidentProperty}>Investiment</Text>
                         <Text style={styles.incidentValue}>{Intl.NumberFormat('en-UK', { style: 'currency', currency: 'EUR' }).format(incident.value)}</Text>
 
                         <TouchableOpacity
                             style={styles.detailButton}
-                            onPress={navigateToDetail}
+                            onPress={() => navigateToDetail(incident)}
                         >
                             <Text style={styles.detailButtonText}>Ver Mais Detalhes</Text>
                             <Feather name="arrow-right" size={16} color="#E02041" />

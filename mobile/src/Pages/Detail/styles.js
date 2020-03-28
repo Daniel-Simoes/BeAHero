@@ -33,6 +33,10 @@ export default StyleSheet.create({
         color:'#737380',
     },
 
+    incidentValueFrom: {
+        fontWeight: 'bold',
+    },
+
     contactBox: {
         padding: 24,
         borderRadius:8,
