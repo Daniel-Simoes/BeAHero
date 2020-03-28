@@ -1,7 +1,7 @@
 import React from 'react';
 import { Feather } from '@expo/vector-icons';
 import { useNavigation } from '@react-navigation/native';
-import { View, Image, Text, TouchableOpacity } from 'react-native';
+import { View, Image, Text, TouchableOpacity, Linking } from 'react-native';
 import * as MailComposer from 'expo-mail-composer';
 
 import logImg from '../../assets/logo.png';
@@ -11,7 +11,7 @@ import styles from './styles';
 export default function Detail() {
 
   const navigation = useNavigation();
-  const message = 'olá test de email';
+  const message = 'olá test da aplicacao';
 
   function navigateBack() {
       navigation.goBack();
@@ -26,7 +26,7 @@ export default function Detail() {
   }
 
   function sendPhone() {
-
+    Linking.openURL(`whatsapp://send?phone=3530834269272&text=${message}`);
 
   }
 
