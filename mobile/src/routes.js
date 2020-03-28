@@ -4,17 +4,18 @@ import { createStackNavigator } from '@react-navigation/stack';
 
 const AppStack = createStackNavigator();
 
-import Incidents from './Pages/Incidents';
-import Details from './Pages/Details';
-
+import Incidents from './pages/Incidents';
+import Detail from './pages/Detail';
 
 export default function Routes() {
   return (
     <NavigationContainer>
-        <AppStack.Navigator screenOptions={{ headerShown: false }}>
-             <AppStack.Screen name="Details" component={Details} />
-             <AppStack.Screen name="Incidents" component={Incidents} />
+
+        <AppStack.Navigator screenOptions={{ headerShown: false }} >
+             <AppStack.Screen name="Incidents" component={Detail} />
+             <AppStack.Screen name="Detail" component={Incidents} />
         </AppStack.Navigator>
+        
     </NavigationContainer>
   );
 }
