@@ -43,7 +43,7 @@ export default StyleSheet.create({
         padding: 24,
         borderRadius:8,
         backgroundColor:'#fff',
-        marginBottom: 0,
+        marginBottom: 16,
     },
     incidentValue: {
         marginTop:8,
