@@ -14,7 +14,9 @@ export default function Detail() {
   const route = useRoute();
 
   const incident = route.params.incident;
-  const message = 'olá test da aplicacao';
+
+  const message = `Hello ${incident.name}, I am avaliable to help about ${incident.title} 
+  which ${Intl.NumberFormat('en-UK', { style: 'currency', currency: 'EUR' }).format(incident.value)}`;
 
   function navigateBack() {
       navigation.goBack();
@@ -22,14 +24,14 @@ export default function Detail() {
 
     function sendMail() {
       MailComposer.composeAsync({
-        subject: 'test de email be a hero',
-        recipients: ['simoes.gsss@gmail.com'],
+        subject: `${incident.title}`,
+        recipients: [incident.email],
         body: message,
       })
   }
 
   function sendPhone() {
-    Linking.openURL(`whatsapp://send?phone=3530834269272&text=${message}`);
+    Linking.openURL(`whatsapp://send?phone=${incident.sendPhone}&text=${message}`);
 
   }
   return (
